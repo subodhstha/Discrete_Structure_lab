@@ -12,7 +12,7 @@ int main()
     }
     printf("Enter the size of set2 \n");
     scanf("%d",&n2);
-    printf("Enter the element of the set1\n");
+    printf("Enter the element of the set2\n");
     for (int i = 0; i < n2; i++)
     {
         scanf("%d",&set2[i]);
