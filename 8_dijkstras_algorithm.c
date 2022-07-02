@@ -72,7 +72,7 @@ void dijkstra(int G[MAX][MAX],int n, int startNode)
             do
             {
                 j = pred[j];
-                printf("<-%d",j);
+                printf("<-%d\n",j);
             }
             while (j != startNode);
         }
