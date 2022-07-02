@@ -12,16 +12,16 @@ void dijkstra(int G[MAX][MAX],int n, int startNode)
     // create the cost matrix
     for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < n; i++)
+        for (int j = 0; j < n; j++)
         {
-        if(G[i][j] == 0)
-        {
-            cost[i][j] = INFINITY;
-        }
-        else
-        {
-            cost[i][j] = G[i][j];
-        }
+            if(G[i][j] == 0)
+            {
+                cost[i][j] = INFINITY;
+            }   
+            else
+            {
+                cost[i][j] = G[i][j];
+            }
         }
     }
     // initialize pred[], distance[] and visited[]
@@ -40,50 +40,60 @@ void dijkstra(int G[MAX][MAX],int n, int startNode)
         // nextNode gives the node at minimum distance
         for (int i = 0; i < n; i++)
         {
-        if (distance[i] < minDistance &&! visited[i])
-            {
-                minDistance = distance[i];
-                nextNode = i;
-            }
-            // check if a better path exists through nextNode
-            visited[nextNode] = 1;
-            for (int i = 0; i < n; i++)
-            {
-                if (!visited[i])
+            if (distance[i] < minDistance &&! visited[i])
                 {
-                    if (minDistance + cost[nextNode][i] < distance[i])
-                    {
-                        distance[i] = minDistance + cost[nextNode][i];
-                    }
-                    
+                    minDistance = distance[i];
+                    nextNode = i;
                 }
-                count++;
-            }
-            // print the path and distance of each 
-            for (int i = 0; i < n; i++)
+        }
+        // check if a better path exists through nextNode
+        visited[nextNode] = 1;
+        for (int i = 0; i < n; i++)
+        {
+            if (!visited[i])
             {
-                if (i != startNode)
+                if (minDistance + cost[nextNode][i] < distance[i])
                 {
-                    printf("Distance of node %d = %d",i ,distance[i]);
-                    printf("Path = %d",i);
-                    j = i;
-                    do
-                    {
-                        j = pred[j];
-                        printf("<-%d");
-                    }
-                    while (j != startNode);
-                }
+                    distance[i] = minDistance + cost[nextNode][i];
+                    pred[i] = nextNode;
+                }     
             }
         }
+        count++;
     }
-    
-    
-    
+    // print the path and distance of each 
+    for (int i = 0; i < n; i++)
+    {
+        if (i != startNode)
+        {
+            printf("Distance of node %d = %d \n",i ,distance[i]);
+            printf("Path = %d",i);
+            j = i;
+            do
+            {
+                j = pred[j];
+                printf("<-%d",j);
+            }
+            while (j != startNode);
+        }
+    } 
 }
+
 int main()
 {
     int G[MAX][MAX], n, u;
-    printf("Enter the adjacency Matrix \n");
+    printf("Enter the no. vertices \n");
     scanf("%d",&n);
+    printf("Enter the adjacency matrix \n");
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            scanf("%d",&G[i][j]);
+        }
+    }
+    printf("Enter the starting node\n");
+    scanf("%d",&u);
+    dijkstra(G, n, u);
+    return 0;
 }
