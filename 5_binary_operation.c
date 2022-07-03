@@ -34,7 +34,7 @@ int binarySub(int n1, int n2)
 // perform binary multiplication for the given values
 int binaryMulti(int n1, int n2)
 {
-    int i, res = 0;
+    int res = 0;
     for (int i = 0; i < n2; i++)
     {
         res = binaryAdd(res, n1);
@@ -44,7 +44,7 @@ int binaryMulti(int n1, int n2)
 // perform binary division for the given values
 int binaryDiv(int n1, int n2)
 {
-    int i, res, count = 0, twosComp;
+    int res, count = 0, twosComp;
     if (n1 < n2)
     {
         printf("Division of %d & %d is %d \n", n1, n2, 0);
