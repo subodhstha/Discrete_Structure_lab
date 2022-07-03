@@ -82,7 +82,7 @@ int main(){
         printf("1.Binary Addition\n");
         printf("2.Binary Subtraction\n");
         printf("3.Binary Multiplication\n");
-        printf("4.Binary Division\n5.Exit");
+        printf("4.Binary Division\n5.Exit\n");
         printf("Enter your choice\n");
         scanf("%d",&ch);
         if (ch != 5)

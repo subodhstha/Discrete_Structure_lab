@@ -41,10 +41,10 @@ void dijkstra(int G[MAX][MAX],int n, int startNode)
         for (int i = 0; i < n; i++)
         {
             if (distance[i] < minDistance &&! visited[i])
-                {
-                    minDistance = distance[i];
-                    nextNode = i;
-                }
+            {
+                minDistance = distance[i];
+                nextNode = i;
+            }
         }
         // check if a better path exists through nextNode
         visited[nextNode] = 1;
