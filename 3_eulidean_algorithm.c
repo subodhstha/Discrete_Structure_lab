@@ -1,4 +1,4 @@
-// Program to Implement Euclidian algorithm.
+// Program to Implement Euclidean algorithm.
 #include<stdio.h>
 int gcd(int a, int b)
 {
